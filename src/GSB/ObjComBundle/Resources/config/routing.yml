@@ -1,0 +1,31 @@
+gsb_obj_com_accueil:
+    path: objcom
+    defaults: { _controller: GSBObjComBundle:Pharmacie:index }
+
+gsb_obj_com_pharm_aff_list:
+    path: objcom/pharm/liste
+    defaults: { _controller: GSBObjComBundle:Pharmacie:afficherListe }
+    
+gsb_obj_com_pharm_ajouter:
+    path: objcom/pharm/ajout
+    defaults: { _controller: GSBObjComBundle:Pharmacie:ajouter }
+    
+gsb_obj_com_pharm_aff_unepharmacie:
+    path: objcom/pharm/{id}
+    defaults: { _controller: GSBObjComBundle:Pharmacie:afficherPharmacie, id : 1 }
+    requirements:
+      id: \d*
+    
+gsb_obj_com_pharm_modifier:
+    path: objcom/pharm/modif/{id}
+    defaults: { _controller: GSBObjComBundle:Pharmacie:modifier, id : 1 }
+    requirements:
+      id: \d*
+    
+    
+gsb_obj_com_pharm_supprimer:
+    path: objcom/pharm/suppres/{id}
+    defaults: { _controller: GSBObjComBundle:Pharmacie:supprimer, id : 1 }
+    requirements:
+      id: \d*
+        

@@ -1,0 +1,7 @@
+<ul>
+    {% for pharm in lesPharmacies %}
+    <li>
+        <a href="{{path('gsb_obj_com_pharm_aff_unepharmacie',{'id':pharm.id})}}">{{pharm.nom}}</a>
+    </li>
+    {% endfor %}
+</ul>
