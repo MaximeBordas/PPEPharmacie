@@ -1,0 +1,14 @@
+{% extends 'GSBObjComBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Suppression
+{% endblock %}
+
+{% block gsbobjcom_body %}
+    <h2>Suppression de produit numéro {{leProd.id}}</h2>
+    <p>Etes vous sur de vouloir supprimer</p>
+    <form action="{{path('gsb_obj_com_produit_supprimer',{'id':leProd.id})}}" method="post">
+        <input type="submit" value="Supprimer">
+    </form>
+    <a href="{{path('gsb_obj_com_produit_aff_unproduit',{id:leProd.id})}}"><p>Annulation de la suppression</p></a>
+{% endblock %}

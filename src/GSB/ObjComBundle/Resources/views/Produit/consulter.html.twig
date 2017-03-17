@@ -1,0 +1,16 @@
+{% extends 'GSBObjComBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Consultation d'un Produit
+{% endblock %}
+
+{% block gsbobjcom_body %}
+    <h2>Caractéristique du produit numéro {{leProd.id}}</h2>
+    <p>nom :{{leProd.libelle}}</p>
+    <p> le prix est de  :{{leProd.prix}} euros</p>
+    <a href="{{path('gsb_obj_com_produit_aff_list')}}" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i>Retour à la liste</a>
+    <br></br>
+    <a href="{{path('gsb_obj_com_produit_modifier',{id:leProd.id})}}" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i>Modifier le produit</a>
+    <br></br>
+    <a href="{{path('gsb_obj_com_produit_supprimer',{id:leProd.id})}}" class="btn btn-danger"><i class=" glyphicon glyphicon-trash"></i>Supprimer le produit</a>
+{% endblock %}

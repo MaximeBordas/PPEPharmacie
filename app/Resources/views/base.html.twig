@@ -29,6 +29,13 @@
                   </ul>
                   <h4>Les dernieres Pharmacies ajoutées</h4>
                     {{render(controller("GSBObjComBundle:Pharmacie:menuDernPharm",{'nb':2}))}}
+                   <h3>Les Produits</h3>
+                   <ul class="nav nav-pills nav-stacked">
+                       <li><a href="{{path('gsb_obj_com_produit_aff_list')}}"></a></li>
+                       <li><a href="{{path('gsb_obj_com_produit_ajouter')}}"></a></li>
+                   </ul>
+                   <h4>Les derniers Produits ajoutées</h4>
+                   {{ render(controller("GSBObjComBundle:Produit:menuDernProd",{'nb':2})) }}
                </div>
                <div id="content" class="col-md-9">
                    {% block body %}{% endblock %}

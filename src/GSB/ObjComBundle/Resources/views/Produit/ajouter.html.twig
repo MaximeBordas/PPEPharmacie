@@ -1,0 +1,10 @@
+{% extends 'GSBObjComBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Ajout
+{% endblock %}
+
+{% block gsbobjcom_body %}
+    <h2>Ajout d'un Produit</h2>
+    {{include ('GSBObjComBundle:Produit:formulaire.html.twig')}}
+{% endblock %}

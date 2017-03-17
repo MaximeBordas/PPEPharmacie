@@ -28,4 +28,31 @@ gsb_obj_com_pharm_supprimer:
     defaults: { _controller: GSBObjComBundle:Pharmacie:supprimer, id : 1 }
     requirements:
       id: \d*
+
+gsb_obj_com_produit_aff_list:
+    path: objcom/produit/liste
+    defaults: { _controller: GSBObjComBundle:Produit:afficherListe }
+
+gsb_obj_com_produit_ajouter:
+    path: objcom/produit/ajout
+    defaults: { _controller: GSBObjComBundle:Produit:ajouter }
+
+gsb_obj_com_produit_aff_unproduit:
+    path: objcom/produit/{id}
+    defaults: { _controller: GSBObjComBundle:Produit:afficherProduit, id : 1 }
+    requirements:
+      id: \d*
+
+gsb_obj_com_produit_modifier:
+    path: objcom/produit/modif/{id}
+    defaults: { _controller: GSBObjComBundle:Produit:modifier, id : 1 }
+    requirements:
+      id: \d*
+
+
+gsb_obj_com_produit_supprimer:
+    path: objcom/produit/suppres/{id}
+    defaults: { _controller: GSBObjComBundle:Produit:supprimer, id : 1 }
+    requirements:
+      id: \d*
         

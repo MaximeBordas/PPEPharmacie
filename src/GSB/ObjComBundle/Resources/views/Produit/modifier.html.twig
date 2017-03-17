@@ -1,0 +1,11 @@
+{% extends 'GSBObjComBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Modifier
+{% endblock %}
+
+{% block gsbobjcom_body %}
+    <h2>Modification du produit numéro {{leProd.id}}</h2>
+    {{include ('GSBObjComBundle:Produit:formulaire.html.twig')}}
+    <p><a href="{{path('gsb_obj_com_produit_aff_unproduit',{id:leProd.id})}}">Annulation de la modification : Retour au Produit</a></p>
+{% endblock %}

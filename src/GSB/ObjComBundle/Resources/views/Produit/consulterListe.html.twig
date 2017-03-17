@@ -1,0 +1,23 @@
+{% extends 'GSBObjComBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Liste des Produits
+{% endblock %}
+
+{% block gsbobjcom_body %}
+    <h2>Listes des Produits</h2>
+    <ul>
+        {% for prod in lesProduits %}
+            <li>
+                <a href="{{path('gsb_obj_com_produit_aff_unproduit',{'id':prod.id})}}">{{prod.libelle}} au prix de   {{prod.prix}} euros</a>
+            </li>
+        {% else %}
+            <li>
+                <p>Pas de produit</p>
+            </li>
+        {% endfor %}
+        {% for message in app.session.flashbag.get('info')%}
+            <p>{{message}}</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
