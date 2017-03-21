@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use GSB\ObjComBundle\Entity\Pharmacie;
+use GSB\ObjComBundle\Entity\Image;
+use GSB\ObjComBundle\Entity\Suivi;
+
 class PharmacieController extends Controller
 {
     public function indexAction()
@@ -50,6 +53,17 @@ class PharmacieController extends Controller
                  $unePharm->setClient(0);
              }
 
+             $uneImage = new Image();
+
+             $urlImage = $this->get('request')->request->get('url');
+             $altImage  = $this->get('request')->request->get('alt');
+
+             $uneImage->setUrl($urlImage);
+             $uneImage->setAlt($altImage);
+
+             $unePharm->setImage($uneImage);
+
+
              //On demande a l'entityManager d'enregistrer dans la bdd
              $em = $this->getDoctrine()->getManager();
              $em->persist($unePharm);
@@ -81,10 +95,15 @@ class PharmacieController extends Controller
              $nom = $this->get('request')->request->get('nom');
              $ville = $this->get('request')->request->get('ville');
 
+             $urlImage = $this->get('request')->request->get('url');
+             $altImage = $this->get('request')->request->get('alt');
+
              //on accede a l'id de la pharmacie avec l'entity Manager
              $em = $this->getDoctrine()->getManager();
              $pharmacieRepository = $em->getRepository('GSBObjComBundle:Pharmacie');
+
              $unePharm = $pharmacieRepository->find($id);
+
              //On assigne les valeurs
              $unePharm->setNom($nom);
              $unePharm->setVille($ville);
@@ -96,6 +115,21 @@ class PharmacieController extends Controller
              {
                  $unePharm->setClient(0);
              }
+             if($unePharm->getImage() == null)
+             {
+                 $uneImage = new Image();
+             }
+             else
+             {
+                 $idImage = $unePharm->getImage()->getId();
+                 $uneImage = $em->getRepository('GSBObjComBundle:Image')->find($idImage);
+             }
+
+             $uneImage->setUrl($urlImage);
+             $uneImage->setAlt($altImage);
+
+             $unePharm->setImage($uneImage);
+
 
              $em->persist($unePharm);
              $em->flush();

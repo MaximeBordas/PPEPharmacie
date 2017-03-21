@@ -133,12 +133,5 @@ class ProduitController extends Controller
             return $this->render('GSBObjComBundle:Produit:supprimer.html.twig',array('leProd'=>$LeProduit));
         }
     }
-    public function menuDernProdAction($limit)
-    {
-        $repository = $this->getDoctrine()->getManager()->getRepository('GSBObjComBundle:Produit');
 
-        $lesProduitsSelectionnes= $repository->derniersProduitsCrees($limit);
-
-        return $this->render('GSBObjComBundle:Produit:menuDernProduit.html.twig',array('lesProduits' => $lesProduitsSelectionnes));
-    }
 }

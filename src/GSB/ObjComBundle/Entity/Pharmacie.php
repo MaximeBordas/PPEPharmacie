@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pharmacie
 {
+
+
+
     /**
      * @var int
      *
@@ -39,6 +42,11 @@ class Pharmacie
     *@ORM\Column(name="client", type="boolean")
     */
     private $client;
+
+    /**
+     *@ORM\OneToOne(targetEntity="GSB\ObjComBundle\Entity\Image", cascade={"persist"})
+     */
+    private $image;
 
     /**
      * @var \DateTime
@@ -152,5 +160,28 @@ class Pharmacie
     public function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \GSB\ObjComBundle\Entity\Image $image
+     * @return Pharmacie
+     */
+    public function setImage(\GSB\ObjComBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \GSB\ObjComBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
