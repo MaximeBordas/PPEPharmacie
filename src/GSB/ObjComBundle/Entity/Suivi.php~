@@ -42,6 +42,19 @@ class Suivi
      */
     private $dateAjout;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="GSB\ObjComBundle\Entity\Pharmacie")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $laPharmacie;
+    /**
+     * Suivi constructor.
+     */
+
+    public function __construct()
+    {
+        $this->dateajout = new \Datetime();
+    }
 
     /**
      * Get id
@@ -120,5 +133,28 @@ class Suivi
     public function getDateAjout()
     {
         return $this->dateAjout;
+    }
+
+    /**
+     * Set laPharmacie
+     *
+     * @param \GSB\ObjComBundle\Entity\Pharmacie $laPharmacie
+     * @return Suivi
+     */
+    public function setLaPharmacie(\GSB\ObjComBundle\Entity\Pharmacie $laPharmacie)
+    {
+        $this->laPharmacie = $laPharmacie;
+
+        return $this;
+    }
+
+    /**
+     * Get laPharmacie
+     *
+     * @return \GSB\ObjComBundle\Entity\Pharmacie 
+     */
+    public function getLaPharmacie()
+    {
+        return $this->laPharmacie;
     }
 }

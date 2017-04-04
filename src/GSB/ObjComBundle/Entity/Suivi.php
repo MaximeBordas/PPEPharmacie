@@ -134,4 +134,27 @@ class Suivi
     {
         return $this->dateAjout;
     }
+
+    /**
+     * Set laPharmacie
+     *
+     * @param \GSB\ObjComBundle\Entity\Pharmacie $laPharmacie
+     * @return Suivi
+     */
+    public function setLaPharmacie(\GSB\ObjComBundle\Entity\Pharmacie $laPharmacie)
+    {
+        $this->laPharmacie = $laPharmacie;
+
+        return $this;
+    }
+
+    /**
+     * Get laPharmacie
+     *
+     * @return \GSB\ObjComBundle\Entity\Pharmacie 
+     */
+    public function getLaPharmacie()
+    {
+        return $this->laPharmacie;
+    }
 }

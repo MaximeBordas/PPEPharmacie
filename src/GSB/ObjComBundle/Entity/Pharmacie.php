@@ -2,6 +2,7 @@
 
 namespace GSB\ObjComBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,9 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pharmacie
 {
-
-
-
     /**
      * @var int
      *
@@ -49,6 +47,11 @@ class Pharmacie
     private $image;
 
     /**
+     * @ORM\ManyToMany(targetEntity="GSB\ObjComBundle\Entity\Categorie",cascade={"persist"})
+     */
+    private $categorie;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateajout", type="datetimetz")
@@ -59,6 +62,7 @@ class Pharmacie
     public function __construct()
     {
         $this->dateajout = new \Datetime();
+        $this->categorie = new ArrayCollection();
     }
     /**
      * Get id
@@ -183,5 +187,38 @@ class Pharmacie
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \GSB\ObjComBundle\Entity\Categorie $categorie
+     * @return Pharmacie
+     */
+    public function addCategorie(\GSB\ObjComBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie[] = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \GSB\ObjComBundle\Entity\Categorie $categorie
+     */
+    public function removeCategorie(\GSB\ObjComBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

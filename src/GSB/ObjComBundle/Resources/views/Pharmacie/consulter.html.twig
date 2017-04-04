@@ -8,13 +8,13 @@
     <h2>Caractéristique de la pharmacie numéro {{laPharm.id}}</h2>
     <p>nom :{{laPharm.nom}}</p>
     <p> situer dans la ville de :{{laPharm.ville}}</p>
-
+    <p>
     {% if laPharm.image.id is defined %}
         <img class="img-circle" width="250" height="200" src="{{ laPharm.image.url }}" alt="{{ laPharm.image.alt }}">
     {% endif %}
-    <a href="{{path('gsb_obj_com_pharm_aff_list')}}" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i>Retour à la liste</a>
+    <a href="{{path('gsb_obj_com_pharm_aff_list')}}" class="btn btn-info"><i class="glyphicon glyphicon-chevron-left"></i>Retour à la liste</a>
     <br></br>
-    <a href="{{path('gsb_obj_com_pharm_modifier',{id:laPharm.id})}}" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i>Modifier la pharmacie</a>
+    <a href="{{path('gsb_obj_com_pharm_modifier',{id:laPharm.id})}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Modifier la pharmacie</a>
     <br></br>                                     
     <a href="{{path('gsb_obj_com_pharm_supprimer',{id:laPharm.id})}}" class="btn btn-danger"><i class=" glyphicon glyphicon-trash"></i>Supprimer la pharmacie</a>
 {% endblock %}
